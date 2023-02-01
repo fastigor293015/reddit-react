@@ -1,0 +1,38 @@
+.menu {
+  position: absolute;
+  top: 17px;
+  right: 15px;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5px;
+  width: 31px;
+  height: 31px;
+  color: var(--grayF3);
+  transform: rotate(90deg);
+}
+
+@media all and (min-width: 1024px) {
+  .menu {
+    position: relative;
+    order: 2;
+    display: flex;
+    align-items: center;
+    flex: 0 0;
+    top: unset;
+    right: unset;
+    margin: 0 0 0 auto;
+  }
+
+  .menuButton {
+    align-self: center;
+    transform: unset;
+  }
+}
+
+@media all and (min-width: 1540px) {
+
+}

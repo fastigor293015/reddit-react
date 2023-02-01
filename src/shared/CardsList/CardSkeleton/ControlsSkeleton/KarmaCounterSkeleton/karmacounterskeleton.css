@@ -1,0 +1,38 @@
+.karmaCounter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.karmaCounter > * + * {
+  padding: 0 0 0 4px;
+}
+
+.karmaValue {
+  height: 14px;
+  width: 25px;
+}
+
+.up, .down {
+  color: var(--grayF3);
+}
+
+.down svg {
+  transform: rotate(180deg);
+}
+
+@media all and (min-width: 1024px) {
+  .karmaCounter {
+    flex-flow: column nowrap;
+  }
+
+  .karmaCounter > * + * {
+    padding: 6px 0 0;
+  }
+
+  .karmaValue {
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--black);
+  }
+}

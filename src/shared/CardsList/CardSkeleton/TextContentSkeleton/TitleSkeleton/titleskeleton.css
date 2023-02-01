@@ -1,0 +1,41 @@
+.title {
+  margin: 0;
+  padding: 7px 0 0;
+}
+
+.firstRow {
+  height: 14px;
+  width: 100%;
+}
+
+.secondRow {
+  height: 14px;
+  width: 70%;
+  margin-top: 8px;
+}
+
+@media all and (min-width: 500px) {
+  .firstRow {
+    width: 400px;
+  }
+
+  .title > *:last-child {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .title {
+    padding: 0 0 10px 0;
+  }
+
+  .firstRow {
+    width: 520px;
+  }
+}
+
+@media all and (min-width: 1540px) {
+  .firstRow {
+    width: 562px;
+  }
+}

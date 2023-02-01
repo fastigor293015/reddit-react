@@ -1,0 +1,39 @@
+.userLink {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px 0 0;
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  margin: 0 7px 0 0;
+  border-radius: 20px;
+}
+
+.username {
+  color: var(--orange);
+}
+
+@media all and (min-width: 1024px) {
+  .userLink {
+    padding: 0 0 0 5px;
+  }
+
+  .userLink:hover a {
+    text-decoration: underline;
+  }
+}
+
+@media all and (min-width: 1540px) {
+  .username {
+    position: relative;
+    z-index: 1;
+  }
+
+  .userLink:hover a {
+    text-decoration: underline;
+  }
+}

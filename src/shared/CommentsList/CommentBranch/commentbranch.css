@@ -1,0 +1,54 @@
+.branch {
+  position: relative;
+  max-height: 200000px;
+  padding-left: 40px;
+  transition: max-height .3s ease-in-out;
+}
+
+.branch.collapsed {
+  max-height: 23px;
+  overflow: hidden;
+}
+
+.branch:not(:last-child) {
+  margin-bottom: 38px;
+}
+
+.expandBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding-bottom: 5px;
+  color: var(--gray99);
+  background: var(--white);
+  transition: opacity .2s ease-in-out;
+}
+
+.expandBtn:hover {
+  color: var(--orange);
+}
+
+.expandBtn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 4px;
+  left: 8px;
+  width: 3px;
+  background: var(--grayD9);
+  cursor: pointer;
+  transition: bottom .2s ease-in-out;
+}
+
+.line.hidden {
+  bottom: 40%;
+}
+
+.line:hover {
+  background: var(--orange);
+}

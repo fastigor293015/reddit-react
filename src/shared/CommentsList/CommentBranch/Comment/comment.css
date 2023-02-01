@@ -1,0 +1,90 @@
+.comment:not(:last-child) {
+  margin-bottom: 38px;
+}
+
+.karma {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 15px;
+  background: var(--white);
+  transform: translateY(-13%);
+}
+
+.up, .down {
+  flex-basis: 10px;
+  height: 10px;
+  color: var(--grayD9);
+}
+
+.down svg {
+  transform: rotate(180deg);
+}
+
+.top {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  border-radius: 50%;
+}
+
+.userLink {
+  color: var(--orange);
+}
+
+.created {
+  color: var(--gray99);
+}
+
+.league {
+  margin-left: 4px;
+  padding: 3px 7px 3px;
+  background: var(--grayD9);
+}
+
+.message {
+  margin: 9px 0 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 27px;
+}
+
+.controls button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: var(--gray99);
+  transition: color .2s ease-in-out;
+}
+
+.controls button:hover {
+  color: var(--orange);
+}
+
+@media all and (min-width: 1024px) {
+  .userLink:hover {
+    text-decoration: underline;
+  }
+}
+
+@media all and (min-width: 1540px) {
+  .karma > button.up:hover > svg > path {
+    fill: var(--green);
+  }
+
+  .karma > button.down:hover > svg > path {
+    fill: var(--orange);
+  }
+}

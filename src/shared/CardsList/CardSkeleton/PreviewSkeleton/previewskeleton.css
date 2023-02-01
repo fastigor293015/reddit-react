@@ -1,0 +1,19 @@
+.preview {
+  height: 178px;
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media all and (min-width: 1024px) {
+  .preview {
+    flex-basis: 190px !important;
+    order: 0;
+    width: 190px;
+    margin: 0;
+    height: 107px;
+  }
+}
