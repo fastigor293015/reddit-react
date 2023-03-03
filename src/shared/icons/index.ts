@@ -7,3 +7,5 @@ export * from './CommentsIcon';
 export * from './AnonIcon';
 export * from './ArrowUpIcon';
 export * from './ExpandIcon';
+
+export * from './MonocleFaceIcon';

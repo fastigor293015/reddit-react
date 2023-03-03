@@ -9,8 +9,8 @@
 }
 
 .karmaValue {
-  height: 14px;
-  width: 25px;
+  height: 14px !important;
+  width: 25px !important;
 }
 
 .up, .down {

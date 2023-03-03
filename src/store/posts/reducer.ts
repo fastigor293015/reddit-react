@@ -3,14 +3,18 @@ import { IPostsData, PostsRequestAction, PostsRequestErrorAction, PostsRequestSu
 
 export type PostsState = {
   data: IPostsData[];
+  after: string;
   loading: boolean;
   error: string;
+  loadingsCount: number;
 }
 
-export const postsInitialState = {
+export const postsInitialState: PostsState = {
   data: [],
+  after: "",
   loading: false,
-  error: '',
+  error: "",
+  loadingsCount: 0,
 }
 
 export type PostsActions = PostsRequestAction
@@ -27,7 +31,9 @@ export const postsReducer: Reducer<PostsState, PostsActions> = (state = postsIni
       return {
         ...state,
         loading: false,
-        data: action.data,
+        data: state.data.concat(...action.data),
+        after: action.after,
+        loadingsCount: state.loadingsCount + 1,
       }
     case POSTS_REQUEST_ERROR:
       return {

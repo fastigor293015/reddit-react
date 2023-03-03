@@ -16,14 +16,11 @@ export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string
   const windowToken = window.__token__,
         localToken = localStorage.getItem('token');
 
-  console.log('завупа')
   if (windowToken && windowToken !== 'undefined') {
-    console.log('В window есть токена')
     dispatch(setToken(windowToken));
     localStorage.setItem('token', windowToken);
   } else {
     if (localToken) {
-      console.log('В localStorage есть токен')
       dispatch(setToken(localToken));
     }
   }

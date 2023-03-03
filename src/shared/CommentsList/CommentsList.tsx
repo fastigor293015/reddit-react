@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Comment } from './CommentBranch/Comment';
 import { CommentBranch } from './CommentBranch';
 import styles from './commentslist.css';
+import { EIcons, Icon } from '../Icon';
+import { CommentBranchSkeleton } from './CommentBranchSkeleton';
+import { CommentSkeleton } from './CommentBranchSkeleton/CommentSkeleton';
 
 interface ICommentsListProps {
   subreddit: string;
@@ -25,24 +28,32 @@ interface IList {
 
 export function CommentsList({ subreddit, postId }: ICommentsListProps) {
   const [list, setList] = useState<IList[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
+    setError("");
+    setLoading(true);
 
     axios.get(`http://api.reddit.com/r/${subreddit}/comments/${postId}`, {
       signal: controller.signal
     })
     .then(resp => {
       setList(resp.data[1].data.children);
+      setLoading(false);
       console.log(resp);
+    }).catch(error => {
+      setError(String(error));
+      setLoading(false);
     })
 
     // Отменяем запрос при анмаунте компонента
     return () => controller.abort();
   }, [])
 
-  function outputList(list: IList[]) {
-    return list.map(comment => {
+  function outputList(branch: IList[]) {
+    return branch.map(comment => {
       const commentInfo = comment.data;
       if (!commentInfo.author || !commentInfo.created || !commentInfo.body) {
         return '';
@@ -60,10 +71,46 @@ export function CommentsList({ subreddit, postId }: ICommentsListProps) {
   }
 
   return (
-    <div>
-      {
-        outputList(list)
-      }
+
+    <div className={styles.comments}>
+      <div className={styles.sort}>
+        Сортировать по:&nbsp;
+        <button>Лучшие</button>
+      </div>
+      <div className={styles.commentsList}>
+        {list && outputList(list)}
+        {loading && (
+          <>
+            <CommentBranchSkeleton>
+              <CommentSkeleton />
+              <CommentBranchSkeleton>
+                <CommentSkeleton />
+              </CommentBranchSkeleton>
+            </CommentBranchSkeleton>
+            <CommentBranchSkeleton>
+              <CommentSkeleton />
+              <CommentBranchSkeleton>
+                <CommentSkeleton />
+              </CommentBranchSkeleton>
+            </CommentBranchSkeleton>
+            <CommentBranchSkeleton>
+              <CommentSkeleton />
+              <CommentBranchSkeleton>
+                <CommentSkeleton />
+              </CommentBranchSkeleton>
+            </CommentBranchSkeleton>
+          </>
+        )}
+        {!loading && !error && list.length === 0 && (
+          <div className={styles.emptyMessage} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2px", textAlign: "center" }}>
+            <Icon name={EIcons.monocleFace} />
+            Хмм... здесь пока пусто
+          </div>
+        )}
+        {error &&
+          <div role="alert" style={{ textAlign: "center" }}>{error}</div>
+        }
+      </div>
     </div>
   );
 }

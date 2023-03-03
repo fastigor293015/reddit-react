@@ -1,0 +1,19 @@
+.branch {
+  position: relative;
+  padding-left: 40px;
+}
+
+.branch:not(:last-child) {
+  margin-bottom: 38px;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 4px;
+  left: 8px;
+  width: 3px;
+  background: var(--grayF3);
+  cursor: pointer;
+  transition: bottom .2s ease-in-out;
+}

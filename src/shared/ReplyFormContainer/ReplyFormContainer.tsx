@@ -1,4 +1,5 @@
-import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
+import Swal from 'sweetalert2';
 import { CommentForm } from '../CommentForm';
 
 interface IReplyFormProps {
@@ -13,9 +14,12 @@ export function ReplyFormContainer({ author }: IReplyFormProps) {
     setValue(e.target.value);
   }
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    console.log(value);
+  function handleSubmit() {
+    Swal.fire(
+      "Good job!",
+      "You clicked the button!",
+      "success",
+    )
   }
 
   return (

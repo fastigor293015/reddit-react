@@ -1,22 +1,26 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { CommentFormContainer } from '../CommentFormContainer';
 import { CommentsList } from '../CommentsList';
 import styles from './post.css';
 
-interface IPost {
-  subreddit: string;
+interface IPostParams {
   postId: string;
-  onClose?: () => void;
+  subreddit: string;
 }
 
-export function Post({ subreddit, postId, onClose }: IPost) {
+export function Post() {
+  const history = useHistory();
+  const { postId, subreddit } = useParams<IPostParams>();
+  // const postsList = useSelector<RootState, IPostsData[]>(state => state.posts.data);
+  // const post = postsList.find(item => item.data.id === postId)!;
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (e.target instanceof Node && !ref.current?.contains(e.target)) {
-        onClose?.();
+        history.push("/");
       }
     }
 
@@ -27,8 +31,7 @@ export function Post({ subreddit, postId, onClose }: IPost) {
     }
   }, []);
 
-  const node = document.getElementById('modal_root');
-  if (!node) return null;
+  const node = document.getElementById('modal_root')!;
 
   return ReactDOM.createPortal((
     <div className={styles.modal} ref={ref}>

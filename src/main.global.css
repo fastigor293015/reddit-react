@@ -50,6 +50,7 @@ a {
 button {
   padding: 0;
   border: none;
+  font-family: "Roboto", serif;
   background-color: transparent;
   cursor: pointer;
 }

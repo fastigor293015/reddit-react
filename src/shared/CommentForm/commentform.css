@@ -18,8 +18,19 @@
   resize: none;
 }
 
-.input[aria-invalid] {
+.input[aria-invalid="true"] {
   border-color: red;
+}
+
+.error {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+  color: white;
+  font-weight: 500;
+  background: red;
 }
 
 .button {

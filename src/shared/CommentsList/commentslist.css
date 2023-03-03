@@ -1,0 +1,34 @@
+.comments {
+  margin-top: 35px;
+}
+
+.commentsList {
+  padding-top: 50px;
+  border-top: 1px solid var(--grayD9);
+}
+
+.sort {
+  margin-bottom: 13px;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--gray99);
+}
+
+.sort button {
+  display: inline-flex;
+  gap: 5px;
+  color: var(--orange);
+}
+
+.sort button::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-width: 1px;
+  border-style: solid;
+  border-top: var(--orange);
+  border-left: var(--orange);
+  color: currentColor;
+  transform: rotate(45deg);
+}

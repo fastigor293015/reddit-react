@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IPostsData, postsRequestAsync } from "../store/posts/actions";
+import { postsRequestAsync } from "../store/posts/actions";
+import { PostsState } from "../store/posts/reducer";
 import { RootState } from "../store/rootReducer";
 
 export function usePostsData() {
   const token = useSelector<RootState, string>(state => state.token);
-  const data = useSelector<RootState, IPostsData[]>(state => state.posts.data);
-  const loading = useSelector<RootState, boolean>(state => state.posts.loading);
+  const { data, after, loading, error } = useSelector<RootState, PostsState>(state => state.posts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export function usePostsData() {
 
   return {
     data,
+    after,
     loading,
+    error,
   };
 }

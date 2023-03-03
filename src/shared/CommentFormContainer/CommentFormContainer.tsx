@@ -1,5 +1,6 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import { updateComment } from '../../store/commentText/actions';
 import { RootState } from '../../store/rootReducer';
 import { CommentForm } from '../CommentForm/CommentForm';
@@ -12,9 +13,14 @@ export function CommentFormContainer() {
     dispatch(updateComment(e.target.value));
   }
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    console.log(value);
+  function handleSubmit() {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Форма успешно отправлена!",
+      showConfirmButton: false,
+      timer: 1500,
+    })
   }
 
   return (

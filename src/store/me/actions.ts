@@ -42,7 +42,6 @@ export const meRequestAsync = (): ThunkAction<void, RootState, unknown, Action<s
   })
   .then((res) => {
     const userRes = res.data;
-    // dispatch(setUserData());
     dispatch(meRequestSuccess({ name: userRes.name, iconImg: userRes.icon_img }));
   })
   .catch((error) => {

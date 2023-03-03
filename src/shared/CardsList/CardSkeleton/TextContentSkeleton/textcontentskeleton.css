@@ -5,7 +5,7 @@
 }
 
 .textContent > * {
-  flex: 1 1 100%;
+  flex: 1 1 100% !important;
 }
 
 .textContent > * + * {
@@ -19,13 +19,13 @@
 }
 
 .createdAt {
-  height: 7px;
-  width: 67px;
+  height: 7px !important;
+  width: 67px !important;
 }
 
 @media all and (min-width: 1024px) {
   .textContent {
-    flex-basis: 540px;
+    flex-basis: 540px !important;
     order: 1;
     margin: 0 0 0 38px;
     padding-left: 0;
@@ -34,7 +34,7 @@
     justify-content: center;
   }
   .textContent > * {
-    flex: 0 0;
+    flex: 0 0 !important;
   }
 
   .metaData {
@@ -43,12 +43,12 @@
   }
 
   .createdAt {
-    width: 188px;
+    width: 188px !important;
   }
 }
 
 @media all and (min-width: 1540px) {
   .textContent {
-    flex-basis: 672px;
+    flex-basis: 672px !important;
   }
 }

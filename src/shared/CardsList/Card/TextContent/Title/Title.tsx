@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Post } from '../../../../Post';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './title.css';
 
 interface ITitleProps {
@@ -9,15 +9,11 @@ interface ITitleProps {
 }
 
 export function Title({ subreddit, postId, descr }: ITitleProps) {
-  const [isModalOpened, setIsModalOpened] = useState(false);
-
   return (
     <h2 className={styles.title}>
-      <a href="#post-url" className={styles.postLink} onClick={() => { setIsModalOpened(true) }}>
+      <Link to={`/posts/${subreddit}/${postId}`} className={styles.postLink}>
         {descr}
-      </a>
-
-      { isModalOpened && <Post subreddit={subreddit} postId={postId} onClose={() => { setIsModalOpened(false) }} /> }
+      </Link>
     </h2>
   );
 }

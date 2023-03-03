@@ -21,8 +21,8 @@
 .username {
   --base-color: var(--grayD9) !important;
   display: none;
-  height: 23px;
-  width: 74px;
+  height: 23px !important;
+  width: 74px !important;
 }
 
 @media all and (min-width: 1024px) {

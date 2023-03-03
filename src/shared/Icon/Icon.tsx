@@ -13,6 +13,7 @@ export enum EIcons {
   save = 'SaveIcon',
   share = 'ShareIcon',
   warning = 'WarningIcon',
+  monocleFace = 'MonocleFaceIcon',
 }
 
 interface IGenericIconProps extends IIconProps {
