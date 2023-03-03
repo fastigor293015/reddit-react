@@ -20,7 +20,20 @@ function setupDevTool() {
   if (IS_PROD) return false;
 }
 
+function getEntry() {
+  if (IS_PROD) {
+    return [path.resolve(__dirname, '../src/client/index.jsx')];
+  }
+
+  return [
+    path.resolve(__dirname, '../src/client/index.jsx'),
+    // Настраиваем запросы к серверу, который будет нам отдавать данные с HMR
+    'webpack-hot-middleware/client?path=http://localhost:3001/static/__webpack_hmr',
+  ]
+}
+
 module.exports = {
+  target: "web",
   mode: NODE_ENV ? NODE_ENV : 'development',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

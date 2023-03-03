@@ -5,16 +5,19 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
-    "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "env NODE_ENV=development CLIENT_ID=1fY8XELTy63quSYPXcab0g node ./bin/dev.js",
-    "test": "jest"
+    "build": "env NODE_ENV=production webpack --config webpack.config.js",
+    "dev": "env NODE_ENV=development CLIENT_ID=1fY8XELTy63quSYPXcab0g SECRET=V8i-AW5b7HL4Hyl8-0K33g34xIvkaQ node ./bin/dev.js",
+    "test": "jest",
+    "start": "env CLIENT_ID=1fY8XELTy63quSYPXcab0g SECRET=V8i-AW5b7HL4Hyl8-0K33g34xIvkaQ node ./dist/server/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.2.1",
     "classnames": "^2.3.2",
+    "compression": "^1.7.4",
     "express": "^4.18.1",
+    "helmet": "^6.0.1",
     "javascript-time-ago": "^2.5.9",
     "nodemon": "^2.0.20",
     "react": "^17.0.1",
